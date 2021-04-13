@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import ContactForm from 'components/Contacts/ContactForm';
 import Filter from 'components/Filter';
@@ -8,6 +9,7 @@ import Section from 'components/Section';
 
 import handleInput from 'utils/handleInput';
 import addContact from 'utils/addContact';
+import resetFilter from 'utils/resetFilter';
 import onDeleteContactItem from 'utils/onDeleteContactItem';
 import onVisibleContacts from 'utils/onVisibleContacts';
 
@@ -24,6 +26,7 @@ export default class App extends Component {
 
   handleInput = handleInput.bind(this);
   addContact = addContact.bind(this);
+  resetFilter = resetFilter.bind(this);
   onDeleteContactItem = onDeleteContactItem.bind(this);
   onVisibleContacts = onVisibleContacts.bind(this);
 
@@ -50,6 +53,7 @@ export default class App extends Component {
             <Filter
               searchFilter={this.state.filter}
               handler={this.handleInput}
+              reset={this.resetFilter}
             />
 
             <ContactList
@@ -58,6 +62,7 @@ export default class App extends Component {
             />
           </div>
         </Section>
+        <ToastContainer />
       </Container>
     );
   }

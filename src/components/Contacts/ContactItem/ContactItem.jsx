@@ -1,5 +1,9 @@
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 import PropTypes from 'prop-types';
 import s from './ContactItem.module.css';
+
 export default function ContactItem({ name, number, onDeleteContact }) {
   return (
     <li className={s.listItem}>
@@ -7,9 +11,12 @@ export default function ContactItem({ name, number, onDeleteContact }) {
         <span>{name}: </span>
         <span>{number}</span>
       </div>
-      <button type="button" className={s.button} onClick={onDeleteContact}>
+      {/* <button type="button" className={s.button} onClick={onDeleteContact}>
         Delete
-      </button>
+      </button> */}
+      <IconButton aria-label="Delete" onClick={onDeleteContact}>
+        <DeleteIcon />
+      </IconButton>
     </li>
   );
 }

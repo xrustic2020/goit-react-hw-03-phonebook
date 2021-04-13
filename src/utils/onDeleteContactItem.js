@@ -1,7 +1,10 @@
-export default function onDeleteContactItem(contactId) {
+import { toast } from 'react-toastify';
+
+export default function onDeleteContactItem({ id, name }) {
+  toast.success(`Contact "${name}" successfully deleted`);
   this.setState(prevState => {
     return {
-      contacts: prevState.contacts.filter(({ id }) => id !== contactId),
+      contacts: prevState.contacts.filter(el => el.id !== id),
     };
   });
 }

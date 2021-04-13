@@ -10,7 +10,7 @@ export default function ContactList({ visible, deleteContactItem }) {
         <ContactItem
           name={el.name}
           number={el.number}
-          onDeleteContact={() => deleteContactItem(el.id)}
+          onDeleteContact={() => deleteContactItem(el)}
           key={el.id}
         />
       ))}

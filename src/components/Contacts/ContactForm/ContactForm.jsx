@@ -1,7 +1,8 @@
-// import IconButton from '@material-ui/core/IconButton';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import Button from '@material-ui/core/Button';
-// import { makeStyles } from '@material-ui/core/styles';
+import 'react-toastify/dist/ReactToastify.css';
+
+// import { useEffect } from 'react';
 
 import { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -10,14 +11,6 @@ import s from './ContactForm.module.css';
 
 import handleInput from 'utils/handleInput';
 import handleSubmit from './handleSubmit.js';
-
-// const useStyles = makeStyles(theme => ({
-//   button: {
-//     margin: theme.spacing(1),
-//   },
-// }));
-
-// const classes = useStyles();
 
 class ContactForm extends Component {
   state = {
@@ -55,6 +48,7 @@ class ContactForm extends Component {
           </label>
         </div>
         <Button
+          type="submit"
           variant="contained"
           color="primary"
           size="small"
@@ -63,9 +57,6 @@ class ContactForm extends Component {
         >
           Add contact
         </Button>
-        {/* <button type="submit" className={s.button} disabled={!this.state.name}>
-          Add contact
-        </button> */}
       </form>
     );
   }

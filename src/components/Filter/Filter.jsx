@@ -1,11 +1,14 @@
+import IconButton from '@material-ui/core/IconButton';
+import RotateLeftOutlinedIcon from '@material-ui/icons/RotateLeftOutlined';
+
 import PropTypes from 'prop-types';
 import s from './Filter.module.css';
 
-export default function Filter({ searchFilter, handler }) {
+export default function Filter({ searchFilter, handler, reset }) {
   return (
     <div className={s.filter}>
       <label>
-        Filter{' '}
+        <span className={s.label}>Filter</span>
         <input
           type="text"
           name="filter"
@@ -14,6 +17,10 @@ export default function Filter({ searchFilter, handler }) {
           onChange={handler}
         />
       </label>
+
+      <IconButton aria-label="delete" onClick={reset}>
+        {searchFilter && <RotateLeftOutlinedIcon />}
+      </IconButton>
     </div>
   );
 }
@@ -21,4 +28,5 @@ export default function Filter({ searchFilter, handler }) {
 Filter.propTypes = {
   searchFilter: PropTypes.string.isRequired,
   handler: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
 };
