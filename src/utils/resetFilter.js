@@ -1,6 +1,11 @@
 import { toast } from 'react-toastify';
 
-export default function resetFilter() {
+export default function resetFilter(setFilter) {
   toast.success('Filter cleaned successfully');
-  this.setState({ filter: '' });
+  setFilter('');
 }
+
+// export default function resetFilter() {
+//   toast.success('Filter cleaned successfully');
+//   this.setState({ filter: '' });
+// }
